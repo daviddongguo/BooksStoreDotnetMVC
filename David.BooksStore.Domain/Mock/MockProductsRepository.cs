@@ -1,14 +1,10 @@
 ﻿using David.BooksStore.Domain.Abstract;
 using David.BooksStore.Domain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace David.BooksStore.Domain.Mock
 {
-    class MockProductsRepository : IProductsRepository
+    public class MockProductsRepository : IProductsRepository
     {
         public IEnumerable<Product> Products
         {
