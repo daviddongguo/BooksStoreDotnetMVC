@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IProductsRepository.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Mock\MockProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

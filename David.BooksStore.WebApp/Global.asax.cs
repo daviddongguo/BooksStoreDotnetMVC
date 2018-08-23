@@ -1,4 +1,5 @@
-﻿using System;
+﻿using David.BooksStore.WebApp.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,9 @@ namespace David.BooksStore.WebApp
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // Register Autofac configure
+            AutofacConfig.Register();
         }
     }
 }

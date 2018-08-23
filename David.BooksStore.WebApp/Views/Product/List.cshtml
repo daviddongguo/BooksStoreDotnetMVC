@@ -1,0 +1,23 @@
+﻿@using David.BooksStore.Domain.Entities
+@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+@foreach (var product in Model)
+{
+    <div>
+        <div class="container">
+            <Table class="table table-responsive">
+                <thead>@ViewBag.Title</thead>
+                <tbody>
+                    <tr>
+                        <td>@product.Title</td>
+                        <td>@product.Price.ToString("c")</td>
+                    </tr>
+                </tbody>
+            </Table>
+        </div>
+    </div>
+}
