@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using David.BooksStore.Domain.Abstract;
+using David.BooksStore.Domain.Concrete;
 using David.BooksStore.Domain.Entities;
 using David.BooksStore.Domain.Mock;
 using Moq;
@@ -20,17 +21,17 @@ namespace David.BooksStore.WebApp.App_Start
 
 
             // region MOQ library
-            Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
-            mock.Setup(m => m.Products).Returns(new List<Product>
-            {
-                new Product { Title = "Think in A", Price = 25 },
-                new Product { Title = "Think in B", Price = 179 },
-                new Product { Title = "Think in C", Price = 95 }
-            });
-            builder.RegisterInstance<IProductsRepository>(mock.Object);
+            //Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
+            //mock.Setup(m => m.Products).Returns(new List<Product>
+            //{
+            //    new Product { Title = "Think in A", Price = 25 },
+            //    new Product { Title = "Think in B", Price = 179 },
+            //    new Product { Title = "Think in C", Price = 95 }
+            //});
+            //builder.RegisterInstance<IProductsRepository>(mock.Object);
 
             // region mock class
-            //builder.RegisterInstance<IProductsRepository>(new MockProctsRepository());
+            builder.RegisterInstance<IProductsRepository>(new EFProductRepository());
 
             // Register all controllers. 
             builder.RegisterControllers(AppDomain.CurrentDomain.GetAssemblies());
