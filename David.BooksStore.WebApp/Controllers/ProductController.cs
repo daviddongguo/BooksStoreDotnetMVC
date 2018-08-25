@@ -16,6 +16,7 @@ namespace David.BooksStore.WebApp.Controllers
             this.repository = repository;
         }
 
+        // Display all the products in the collection.
         public ActionResult List()
         {
             return View(repository.Products);

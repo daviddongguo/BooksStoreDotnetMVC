@@ -20,18 +20,19 @@ namespace David.BooksStore.WebApp.App_Start
             var builder = new ContainerBuilder();
 
 
-            // region MOQ library
+            // Create mock data by using MOQ directly
+
             //Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
             //mock.Setup(m => m.Products).Returns(new List<Product>
             //{
-            //    new Product { Title = "Think in A", Price = 25 },
-            //    new Product { Title = "Think in B", Price = 179 },
-            //    new Product { Title = "Think in C", Price = 95 }
+            //    new Product { Title = "Think in X", Price = 25 },
+            //    new Product { Title = "Think in Y", Price = 179 },
+            //    new Product { Title = "Think in Z", Price = 95 }
             //});
             //builder.RegisterInstance<IProductsRepository>(mock.Object);
 
-            // region mock class
-            builder.RegisterInstance<IProductsRepository>(new EFProductRepository());
+            // Use the mock data
+            builder.RegisterInstance<IProductsRepository>(new MockProductsRepository());
 
             // Register all controllers. 
             builder.RegisterControllers(AppDomain.CurrentDomain.GetAssemblies());

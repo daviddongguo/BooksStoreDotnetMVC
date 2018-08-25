@@ -1,23 +1,42 @@
 ﻿@using David.BooksStore.Domain.Entities
+@using System.Reflection
+@using System
 @model IEnumerable<Product>
 
 @{
     ViewBag.Title = "Products";
 }
 
-@foreach (var product in Model)
-{
-    <div>
-        <div class="container">
-            <Table class="table table-responsive">
-                <thead>@ViewBag.Title</thead>
+
+<div>
+    <div class="container">
+        <Table class="table table-responsive">
+            @* Using Reflection to get the feld name as the caption of the table *@
+            <thead>
+                <caption>@Model.ToString()</caption>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            @* Using the foreach statement to retrieve all the data *@
+            @foreach (var product in Model)
+            {
+
                 <tbody>
                     <tr>
                         <td>@product.Title</td>
+                        <td>@product.Author.ToString()</td>
                         <td>@product.Price.ToString("c")</td>
+                        <td>@product.CategoryId.ToString()</td>
+                        <td>@product.Description.ToString()</td>
                     </tr>
                 </tbody>
-            </Table>
-        </div>
+            }
+        </Table>
     </div>
-}
+</div>
