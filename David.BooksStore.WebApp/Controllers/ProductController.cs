@@ -1,4 +1,5 @@
 ﻿using David.BooksStore.Domain.Abstract;
+using David.BooksStore.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,49 @@ namespace David.BooksStore.WebApp.Controllers
     {
         private IProductsRepository repository;
 
+        public int PageSize = 5;
+
         public ProductController(IProductsRepository repository)
         {
             this.repository = repository;
         }
 
-        // Display all the products in the collection.
-        public ActionResult List()
+  
+        /// <summary>
+        /// Display the the products bye the category 
+        /// And use the pagination
+        /// </summary>
+        /// <param name="categoryId"></param> the name of the categorey
+        /// <param name="page"></param> the order of the page
+        /// <returns></returns>
+        public ActionResult List(string categoryId, int page = 1)
         {
-            return View(repository.Products);
+            ProductsListViewModel model = new ProductsListViewModel
+            {
+                // Filter the products 
+                Products = repository
+                        .Products
+                        .Where(p => categoryId == null || p.CategoryId == categoryId)
+                        .OrderBy(p => p.ProductId)
+                        .Skip( (page - 1) * PageSize )
+                        .Take( PageSize ),
+
+                // 
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    // Get the products remaind
+                    TotalItems = repository
+                            .Products
+                            .Where(p => categoryId == null || p.CategoryId == categoryId)
+                            .Count()
+                },
+
+                CurrentCategory = categoryId
+            };
+
+            return View(model);
         }
     }
 }

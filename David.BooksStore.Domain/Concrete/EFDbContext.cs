@@ -8,20 +8,14 @@ using System.Threading.Tasks;
 
 namespace David.BooksStore.Domain.Concrete
 {
+    /// <summary>
+    /// Using entity framework.
+    /// </summary>
     public class EFDbContext : DbContext 
     {
+        // Declare a list
         public DbSet<Product> Products { get; set; }
 
-        public EFDbContext()
-        {
-            using (var ctx = new EFDbContext())
-            {
-                var product = new Product() { };
 
-                ctx.Products.Add(product);
-                ctx.SaveChanges();
-            }
-
-        }
     }
 }

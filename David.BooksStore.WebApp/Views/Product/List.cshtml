@@ -1,7 +1,7 @@
 ﻿@using David.BooksStore.Domain.Entities
 @using System.Reflection
 @using System
-@model IEnumerable<Product>
+@model David.BooksStore.WebApp.Models.ProductsListViewModel
 
 @{
     ViewBag.Title = "Products";
@@ -10,10 +10,9 @@
 
 <div>
     <div class="container">
-        <Table class="table table-responsive">
-            @* Using Reflection to get the feld name as the caption of the table *@
+        @*<table class="table table-responsive">
+            <caption>@Model.ToString()</caption>
             <thead>
-                <caption>@Model.ToString()</caption>
                 <tr>
                     <th>Title</th>
                     <th>Author</th>
@@ -23,10 +22,8 @@
                 </tr>
             </thead>
 
-            @* Using the foreach statement to retrieve all the data *@
-            @foreach (var product in Model)
+            @foreach (var product in Model.Products)
             {
-
                 <tbody>
                     <tr>
                         <td>@product.Title</td>
@@ -37,6 +34,17 @@
                     </tr>
                 </tbody>
             }
-        </Table>
+        </table>*@
+        <div>
+            @foreach (var p in Model.Products)
+            {
+                @Html.Partial("ProductSummary", p)
+            }
+        </div>
+
+
+        <div>
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, categoryId = Model.CurrentCategory }) )
+        </div>
     </div>
 </div>

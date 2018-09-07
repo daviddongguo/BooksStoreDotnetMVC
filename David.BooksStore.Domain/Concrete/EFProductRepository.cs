@@ -10,6 +10,7 @@ namespace David.BooksStore.Domain.Concrete
 {
     public class EFProductRepository : IProductsRepository
     {
+        // Link to the database by using the entity framework
         private EFDbContext context = new EFDbContext();
 
         public IEnumerable<Product> Products

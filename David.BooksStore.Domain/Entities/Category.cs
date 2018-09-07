@@ -8,7 +8,7 @@ namespace David.BooksStore.Domain.Entities
 {
     class Category
     {
-        public int CategoryId { get; set; }
+        public string CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
     }

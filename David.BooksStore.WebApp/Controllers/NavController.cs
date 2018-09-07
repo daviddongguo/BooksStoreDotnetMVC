@@ -1,0 +1,34 @@
+﻿using David.BooksStore.Domain.Abstract;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace David.BooksStore.WebApp.Controllers
+{
+    public class NavController : Controller
+    {
+        private IProductsRepository repository;
+
+        public NavController(IProductsRepository repo)
+        {
+            repository = repo;
+        }
+
+        // Display the all categories in the sidebar
+        public PartialViewResult Menu( string categoryId = null)
+        {
+            // Add 
+            ViewBag.SelectedCategory = categoryId;
+
+            IEnumerable<string> categories = repository
+            .Products
+            .Select(x => x.CategoryId)
+            .Distinct()
+            .OrderBy(x => x);
+
+            return PartialView(categories);
+        }
+    }
+}

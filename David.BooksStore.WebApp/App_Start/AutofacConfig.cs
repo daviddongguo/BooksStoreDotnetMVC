@@ -32,7 +32,7 @@ namespace David.BooksStore.WebApp.App_Start
             //builder.RegisterInstance<IProductsRepository>(mock.Object);
 
             // Use the mock data
-            builder.RegisterInstance<IProductsRepository>(new MockProductsRepository());
+            builder.RegisterInstance<IProductsRepository>(new EFProductRepository());
 
             // Register all controllers. 
             builder.RegisterControllers(AppDomain.CurrentDomain.GetAssemblies());

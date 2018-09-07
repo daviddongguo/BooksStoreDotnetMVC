@@ -26,8 +26,10 @@ Main Steps:
 4 Redering the View data
 	Setup Development Environment for EF Code-First
 	Creating the Entity Framework Context by installing package EntityFramework in domain and WebApp
-	Creating a database connection
 	Creating a context class that will associate the model with the database
 		/Create/EFDbContext.cs : DbContext
 	Creating the EFProductRepository extends IproductRepository
 	Bind the EfproductRepository
+	
+	Specifing the connection string under <configuration> tag for our database in the Web.config file )
+

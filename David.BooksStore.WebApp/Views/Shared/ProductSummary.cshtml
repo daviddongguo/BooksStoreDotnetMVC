@@ -1,0 +1,12 @@
+﻿@model David.BooksStore.Domain.Entities.Product
+
+<div class="well">
+    <h3>
+        <strong>@Model.Title</strong>
+        <span class="pull-right label label-primary">@Model.Price.ToString("c")</span>
+    </h3>
+    <span class="lead"> @Model.ProductId</span>
+    <span class="lead"> @Model.Description</span>
+    <span class="lead"> @Model.CategoryId</span>
+</div>
+
