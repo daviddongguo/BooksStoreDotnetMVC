@@ -1,12 +1,18 @@
 ﻿@model David.BooksStore.Domain.Entities.Product
-
 <div class="well">
     <h3>
         <strong>@Model.Title</strong>
         <span class="pull-right label label-primary">@Model.Price.ToString("c")</span>
     </h3>
-    <span class="lead"> @Model.ProductId</span>
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {
+        <div class="pull-right">
+            @* Get the current productId = (int) currentProductId *@
+            @Html.HiddenFor(x => x.ProductId)
+            @* Get the current page's URL *@
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery) 
+            <input type="submit" class="btn btn-success" value="Add to cart" />
+        </div>
+    }
     <span class="lead"> @Model.Description</span>
-    <span class="lead"> @Model.CategoryId</span>
 </div>
-

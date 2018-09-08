@@ -29,7 +29,7 @@ namespace David.BooksStore.WebApp.Controllers
         /// <returns></returns>
         public ActionResult List(string categoryId, int page = 1)
         {
-            ProductsListViewModel model = new ProductsListViewModel
+            ProductsListViewModel productsModel = new ProductsListViewModel
             {
                 // Filter the products 
                 Products = repository
@@ -54,7 +54,7 @@ namespace David.BooksStore.WebApp.Controllers
                 CurrentCategory = categoryId
             };
 
-            return View(model);
+            return View(productsModel);
         }
     }
 }

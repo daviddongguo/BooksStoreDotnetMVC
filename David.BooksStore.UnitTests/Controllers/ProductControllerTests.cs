@@ -1,9 +1,9 @@
-﻿
-using David.BooksStore.Domain.Abstract;
+﻿using David.BooksStore.Domain.Abstract;
 using David.BooksStore.Domain.Entities;
 using David.BooksStore.WebApp.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System.Linq;
 
 namespace David.BooksStore.WebApp.Controllers.Tests
 {
@@ -15,25 +15,37 @@ namespace David.BooksStore.WebApp.Controllers.Tests
         {
             // Arrange
             Mock<IProductsRepository> mock = new Mock<IProductsRepository>();
-            mock.Setup(m => m.Products).Returns(new Product[]
-            {
-                new Product {ProductId = 1, Title = "P1", CategoryId = "Apples"},
-                new Product {ProductId = 2, Title = "P2", CategoryId = "Apples"},
-                new Product {ProductId = 3, Title = "P3", CategoryId = "Plums"},
-                new Product {ProductId = 4, Title = "P4", CategoryId = "Oranges"},
-            });
-            // Arrange
+            mock.Setup(m => m.Products).Returns
+                (
+                    new Product[] 
+                    {
+                        new Product {ProductId = 1, CategoryId = "1", Title = "P1"},
+                        new Product {ProductId = 2, CategoryId = "1", Title = "P2"},
+                        new Product {ProductId = 3, CategoryId = "1", Title = "P3"},
+                        new Product {ProductId = 4, CategoryId = "1", Title = "P4"},
+                        new Product {ProductId = 5, CategoryId = "1", Title = "P5"}
+                     }
+                );
             ProductController controller = new ProductController(mock.Object);
-
             controller.PageSize = 3;
-            // Act
-            // ProductsListViewModel result = (ProductsListViewModel)controller.List("Apples", 2).Model;
+            // Act 
+            //             // Arrange - create the controller
+            // NavController target = new NavController(mock.Object);
+
+            // Act = get the set of categories
+            // string[] results = ((IEnumerable<string>)target.Menu().Model).ToArray();
+
+
+            // var result = (ProductsListViewModel)controller.List("", 2).Model;
+            // string[] results = ((IEnumerable<string>)target.Menu().Model).ToArray();
+
+            // Product[] prodArray = ((ProductsListViewModel)(controller.List("1", 2)).Model).Products.ToArray();
             // Assert
-            //PagingInfo pageInfo = result.PagingInfo;
-            //Assert.AreEqual(pageInfo.CurrentPage, 2);
-            //Assert.AreEqual(pageInfo.ItemsPerPage, 3);
-            //Assert.AreEqual(pageInfo.TotalItems, 5);
-            //Assert.AreEqual(pageInfo.TotalPages, 2);
+            // Product[] prodArray = result.Products.ToArray();
+
+            // Assert.IsTrue(prodArray.Length == 2);
+            // Assert.AreEqual(prodArray[0].Title, "P4");
+            // Assert.AreEqual(prodArray[1].Title, "P5");
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using David.BooksStore.WebApp.App_Start;
+﻿using David.BooksStore.Domain.Entities;
+using David.BooksStore.WebApp.App_Start;
+using David.BooksStore.WebApp.Infrastructure.Binders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,10 @@ namespace David.BooksStore.WebApp
 
             // Register Autofac configure
             AutofacConfig.Register();
-        }
+
+            // 
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
+
+    }
     }
 }

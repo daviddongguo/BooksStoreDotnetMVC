@@ -30,6 +30,13 @@ Main Steps:
 		/Create/EFDbContext.cs : DbContext
 	Creating the EFProductRepository extends IproductRepository
 	Bind the EfproductRepository
-	
-	Specifing the connection string under <configuration> tag for our database in the Web.config file )
+	Specifing the connection string under <configuration> tag for our database in the Web.config file 
 
+5  Pagination
+	Add class PagingInfo (TotalItems, ItemsPerpage, CurrentPage, TotalPages).
+	Add class Painghelpers in HtmlHelpers folder.
+	Add model ProductsListViewModel 
+	Update list method in the ProductController using ProductslistViewModel.
+
+
+6  Navigation
