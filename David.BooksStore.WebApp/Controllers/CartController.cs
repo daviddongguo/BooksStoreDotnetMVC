@@ -1,10 +1,7 @@
 ﻿using David.BooksStore.Domain.Abstract;
 using David.BooksStore.Domain.Entities;
 using David.BooksStore.WebApp.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace David.BooksStore.WebApp.Controllers
@@ -12,9 +9,11 @@ namespace David.BooksStore.WebApp.Controllers
     public class CartController : Controller
     {
         private IProductsRepository repository;
-        public CartController(IProductsRepository repo)
+        private IOrderProcessor orderProcessor;
+        public CartController(IProductsRepository repo, IOrderProcessor proc)
         {
             repository = repo;
+            orderProcessor = proc;
         }
 
         public ViewResult Index(Cart cart, string returnUrl)

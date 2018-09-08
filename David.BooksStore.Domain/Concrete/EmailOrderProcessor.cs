@@ -39,7 +39,7 @@ namespace David.BooksStore.Domain.Concrete
                 foreach (var line in cart.Lines)
                 {
                     var subtotal = line.Product.Price * line.Quantity;
-                    body.AppendFormat("{0} x {1} (subtotal: {2:c}", line.Quantity, line.Product.Name, subtotal);
+                    body.AppendFormat("{0} x {1} (subtotal: {2:c}", line.Quantity, line.Product.Title, subtotal);
                 }
                 body.AppendFormat("Total order value: {0:c}", cart.ComputeTotalValue())
                 .AppendLine("---")

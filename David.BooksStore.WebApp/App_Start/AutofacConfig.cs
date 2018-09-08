@@ -34,6 +34,8 @@ namespace David.BooksStore.WebApp.App_Start
             // Use the mock data
             builder.RegisterInstance<IProductsRepository>(new EFProductRepository());
 
+            builder.RegisterInstance<IOrderProcessor>(new EmailOrderProcessor(new EmailSettings()));
+
             // Register all controllers. 
             builder.RegisterControllers(AppDomain.CurrentDomain.GetAssemblies());
 
