@@ -2,6 +2,7 @@
 using David.BooksStore.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -28,6 +29,10 @@ namespace David.BooksStore.Domain.Concrete
                 smtpClient.Credentials = new NetworkCredential(emailSettings.Username, emailSettings.Password);
                 if (emailSettings.WriteAsFile)
                 {
+                    if (!Directory.Exists(emailSettings.FileLocation))
+                    {
+                        Directory.CreateDirectory(emailSettings.FileLocation);
+                    }
                     smtpClient.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
                     smtpClient.PickupDirectoryLocation = emailSettings.FileLocation;
                     smtpClient.EnableSsl = false;
