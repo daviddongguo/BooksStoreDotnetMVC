@@ -17,18 +17,15 @@ namespace David.BooksStore.WebApp.Controllers
         }
 
         // Display the all categories in the sidebar
-        public PartialViewResult Menu( string categoryId = null)
+        public PartialViewResult Menu(string category = null)
         {
-            // Add 
-            ViewBag.SelectedCategory = categoryId;
-
+            ViewBag.SelectedCategory = category;
             IEnumerable<string> categories = repository
             .Products
             .Select(x => x.CategoryId)
             .Distinct()
             .OrderBy(x => x);
-
-            return PartialView(categories);
+            return PartialView("FlexMenu", categories);
         }
     }
 }
