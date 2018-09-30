@@ -28,5 +28,40 @@ namespace David.BooksStore.WebApp.Controllers
             .FirstOrDefault(p => p.ProductId == productId);
             return View(product);
         }
+
+        [HttpPost]
+        public ActionResult Edit(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.SaveProduct(product);
+                TempData["message"] = string.Format("{0} has been saved", product.Title);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // there is something wrong with the data values
+                return View(product);
+            }
+        }
+
+        public ViewResult Create()
+        {
+            return View("Edit", new Product());
+        }
+
+
+        [HttpPost]
+        public ActionResult Delete(int productId)
+        {
+            Product deletedProduct = repository.DeleteProduct(productId);
+            if (deletedProduct != null)
+            {
+                TempData["message"] = string.Format($"{deletedProduct.Title} was seleted");
+            }
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

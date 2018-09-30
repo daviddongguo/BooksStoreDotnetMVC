@@ -79,12 +79,29 @@
     <Compile Include="Entities\EmailSettings.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ShippingDetails.cs" />
+    <Compile Include="Migrations\201808270116371_InitialCreate.cs" />
+    <Compile Include="Migrations\201808270116371_InitialCreate.Designer.cs">
+      <DependentUpon>201808270116371_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809292101451_ModifyProduct.cs" />
+    <Compile Include="Migrations\201809292101451_ModifyProduct.Designer.cs">
+      <DependentUpon>201809292101451_ModifyProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mock\MockProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808270116371_InitialCreate.resx">
+      <DependentUpon>201808270116371_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809292101451_ModifyProduct.resx">
+      <DependentUpon>201809292101451_ModifyProduct.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

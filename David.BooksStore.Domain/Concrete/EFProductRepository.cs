@@ -17,5 +17,36 @@ namespace David.BooksStore.Domain.Concrete
         {
             get { return context.Products; }
         }
+
+        public Product DeleteProduct(int productId)
+        {
+            Product dbEntry = context.Products.Find(productId);   // find an entity with the primary key value
+            if ( dbEntry != null)
+            {
+                context.Products.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
+
+        public void SaveProduct(Product product)
+        {
+            if (product.ProductId == 0)  // a new product
+            {
+                context.Products.Add(product);
+            }
+            else                   // an old product whose productId is exists
+            {
+                Product dbEntry = context.Products.Find(product.ProductId);
+                if (dbEntry != null)
+                {
+                    dbEntry.Title = product.Title;
+                    dbEntry.Description = product.Description;
+                    dbEntry.Price = product.Price;
+                    dbEntry.CategoryId = product.CategoryId;
+                }
+            }
+            context.SaveChanges();
+        }
     }
 }

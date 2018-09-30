@@ -16,11 +16,17 @@ namespace David.BooksStore.Domain.Mock
             {
                 return new List<Product>
                 {
-                    //new Product { Title = "Think in C", Author = "Mic", Price = 125, CategoryId =1, Description = "A good book" },
-                    //new Product { Title = "Think in Java", Author = "J", Price = 179, CategoryId =2, Description = "Great"  },
-                    //new Product { Title = "Think in C#",  Author = "Mic",Price = 205, CategoryId =1, Description = "Not bad expect the price"  }
                 };
             }
+        }
+
+        public Product DeleteProduct(int productId)
+        {
+            return new Product();
+        }
+
+        public void SaveProduct(Product product)
+        {
         }
     }
 }
