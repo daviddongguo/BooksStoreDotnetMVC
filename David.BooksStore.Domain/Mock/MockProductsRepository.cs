@@ -16,6 +16,8 @@ namespace David.BooksStore.Domain.Mock
             {
                 return new List<Product>
                 {
+                    new Product {Title = "Think in c", Price = 105},
+                    new Product {Title = "Think in J", Price = 125}
                 };
             }
         }

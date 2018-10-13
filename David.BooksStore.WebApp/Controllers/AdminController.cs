@@ -1,9 +1,6 @@
 ﻿using David.BooksStore.Domain.Abstract;
 using David.BooksStore.Domain.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace David.BooksStore.WebApp.Controllers
@@ -11,6 +8,7 @@ namespace David.BooksStore.WebApp.Controllers
     public class AdminController : Controller
     {
         private IProductsRepository repository;
+
         public AdminController(IProductsRepository repo)
         {
             repository = repo;
@@ -35,7 +33,7 @@ namespace David.BooksStore.WebApp.Controllers
             if (ModelState.IsValid)
             {
                 repository.SaveProduct(product);
-                TempData["message"] = string.Format("{0} has been saved", product.Title);
+                TempData["message"] = $"{product.Title} has been saved";
                 return RedirectToAction("Index");
             }
             else

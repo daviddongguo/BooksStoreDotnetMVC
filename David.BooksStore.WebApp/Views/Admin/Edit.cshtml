@@ -2,18 +2,19 @@
 @{
     ViewBag.Title01 = "Admin: Edit " + @Model.Title;
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    //HtmlHelper.ClientValidationEnabled = false;
-    //HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+    // based on the data annotations applied to the domain model class
+    HtmlHelper.ClientValidationEnabled = true;      // client-side validation
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = true;
 }
 <div class="panel">
     <div class="panel-heading">
-        <h3>Edit @Model.Title</h3>
+        <h3>@Model.Title</h3>
     </div>
     @using (Html.BeginForm("Edit", "Admin"))
     {
         <div class="panel-body">
             @Html.HiddenFor(m => m.ProductId)
-            @foreach (var property in ViewData.ModelMetadata.Properties)
+            @foreach (var property in ViewData.ModelMetadata.Properties)  // use reflection
             {
                 if (property.PropertyName != "ProductId")
                 {

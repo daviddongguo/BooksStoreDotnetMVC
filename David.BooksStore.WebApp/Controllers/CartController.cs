@@ -10,6 +10,7 @@ namespace David.BooksStore.WebApp.Controllers
     {
         private IProductsRepository repository;
         private IOrderProcessor orderProcessor;
+
         public CartController(IProductsRepository repo, IOrderProcessor proc)
         {
             repository = repo;
@@ -47,10 +48,7 @@ namespace David.BooksStore.WebApp.Controllers
             return RedirectToAction("Index", new { returnUrl });
         }
 
-        public PartialViewResult Summary(Cart cart)
-        {
-            return PartialView(cart);
-        }
+
 
         public ViewResult Checkout()
         {
@@ -80,6 +78,11 @@ namespace David.BooksStore.WebApp.Controllers
         public ViewResult Completed()
         {
             return View();
+        }
+
+        public PartialViewResult Summary(Cart cart)  
+        {
+            return PartialView(cart);
         }
 
     }
