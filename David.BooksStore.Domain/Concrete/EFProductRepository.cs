@@ -11,6 +11,12 @@ namespace David.BooksStore.Domain.Concrete
     public class EFProductRepository : IProductsRepository
     {
         // Link to the database by using the entity framework
+        //public class EFDbContext : DbContext
+        //{
+        //    // Declare a list
+        //    public DbSet<Product> Products { get; set; }
+        //}
+
         private EFDbContext context = new EFDbContext();
 
         public IEnumerable<Product> Products
@@ -20,7 +26,8 @@ namespace David.BooksStore.Domain.Concrete
 
         public Product DeleteProduct(int productId)
         {
-            Product dbEntry = context.Products.Find(productId);   // find an entity with the primary key value
+            // find an entity with the primary key value
+            Product dbEntry = context.Products.Find(productId);   
             if ( dbEntry != null)
             {
                 context.Products.Remove(dbEntry);
@@ -38,7 +45,7 @@ namespace David.BooksStore.Domain.Concrete
             else                   // an old product whose productId is exists
             {
                 Product dbEntry = context.Products.Find(product.ProductId);
-                if (dbEntry != null)
+                if (dbEntry != null)  // entity found
                 {
                     dbEntry.Title = product.Title;
                     dbEntry.Description = product.Description;

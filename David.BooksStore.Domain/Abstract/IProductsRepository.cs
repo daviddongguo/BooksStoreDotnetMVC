@@ -11,7 +11,7 @@ namespace David.BooksStore.Domain.Abstract
         // Declare a collection class that can be used with the foreach statement. .
         IEnumerable<Product> Products { get; }
 
-        void SaveProduct(Product product);
+        void SaveProduct(Product product);  // Add a new product or update an older product
 
         Product DeleteProduct(int productId);
     }
