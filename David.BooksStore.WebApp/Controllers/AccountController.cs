@@ -8,7 +8,8 @@ using System.Web.Mvc;
 
 public class AccountController : Controller
 {
-    IAuthProvider authProvider;
+    private readonly IAuthProvider authProvider;
+
     public AccountController(IAuthProvider auth)
     {
         authProvider = auth;
@@ -17,6 +18,7 @@ public class AccountController : Controller
     {
         return View();
     }
+
     [HttpPost]
     public ActionResult Login(LoginViewModel model, string returnUrl)
     {

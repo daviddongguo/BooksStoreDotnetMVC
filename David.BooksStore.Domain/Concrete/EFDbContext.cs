@@ -11,5 +11,8 @@ namespace David.BooksStore.Domain.Concrete
         // Declare a list
         public DbSet<Product> Products { get; set; }
 
+
+        public DbSet<User> Users { get; set; }
+
     }
 }
