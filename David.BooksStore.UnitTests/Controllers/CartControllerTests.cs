@@ -244,7 +244,6 @@ namespace David.BooksStore.WebApp.Controllers.Tests
             PartialViewResult result = target.Summary(cart);
 
             Debug.WriteLine("\n\n************************SummaryTest***************************\n\n");
-            Debug.WriteLine(result.Model.ComputeTotalValue().ToString("c"));
             Debug.WriteLine(result.ToString());
             Debug.WriteLine("\n\n************************SummaryTest***************************\n\n");
 
