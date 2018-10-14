@@ -5,6 +5,7 @@ using System.Web.Mvc;
 
 namespace David.BooksStore.WebApp.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IProductsRepository repository;

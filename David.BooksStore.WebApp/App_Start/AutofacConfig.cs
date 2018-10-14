@@ -4,6 +4,8 @@ using David.BooksStore.Domain.Abstract;
 using David.BooksStore.Domain.Concrete;
 using David.BooksStore.Domain.Entities;
 using David.BooksStore.Domain.Mock;
+using David.BooksStore.WebApp.Infrastructure.Abstract;
+using David.BooksStore.WebApp.Infrastructure.Concrete;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -31,14 +33,17 @@ namespace David.BooksStore.WebApp.App_Start
             //});
             //builder.RegisterInstance<IProductsRepository>(mock.Object);
 
-            // Use the mock data
-            builder.RegisterInstance<IProductsRepository>(new EFProductRepository());
-
-            builder.RegisterInstance<IOrderProcessor>(new EmailOrderProcessor(new EmailSettings()));
-
             // Register all controllers. 
             builder.RegisterControllers(AppDomain.CurrentDomain.GetAssemblies());
 
+            // Use the mock data
+            builder.RegisterInstance<IProductsRepository>(new EFProductRepository()).PropertiesAutowired();
+
+            builder.RegisterInstance<IOrderProcessor>(new EmailOrderProcessor(new EmailSettings()));
+
+            builder.RegisterInstance<IAuthProvider>(new FormsAuthProvider()).PropertiesAutowired();
+
+            builder.RegisterType<EFDbContext>();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
