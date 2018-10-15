@@ -208,14 +208,14 @@ namespace David.BooksStore.WebApp.Controllers.Tests
             //ViewResult result = target.Checkout(cart, new ShippingDetails());
             ViewResult result = target.Completed();
 
-            Debug.WriteLine("\n\n************************CompletedTest***************************\n\n");
-            Debug.WriteLine(result.ViewName);
-            Debug.WriteLine(result.MasterName);
-            Debug.WriteLine(result.ToString());
-            Debug.WriteLine(result.Model);
-            Debug.WriteLine(result.ViewData);
-            Debug.WriteLine(result.View);
-            Debug.WriteLine("\n\n*************************CompletedTest**************************\n\n");
+            Console.WriteLine("\n\n************************CompletedTest***************************\n\n");
+            Console.WriteLine(result.ViewName);
+            Console.WriteLine(result.MasterName);
+            Console.WriteLine(result.ToString());
+            Console.WriteLine(result.Model);
+            Console.WriteLine(result.ViewData);
+            Console.WriteLine(result.View);
+            Console.WriteLine("\n\n*************************CompletedTest**************************\n\n");
 
             // Assert - check that the method is returning the Completed view
             //Assert.AreEqual("Completed", result.ViewName);
@@ -243,9 +243,9 @@ namespace David.BooksStore.WebApp.Controllers.Tests
             // ACT
             PartialViewResult result = target.Summary(cart);
 
-            Debug.WriteLine("\n\n************************SummaryTest***************************\n\n");
-            Debug.WriteLine(result.ToString());
-            Debug.WriteLine("\n\n************************SummaryTest***************************\n\n");
+            Console.WriteLine("\n\n************************SummaryTest***************************\n\n");
+            Console.WriteLine(result.ToString());
+            Console.WriteLine("\n\n************************SummaryTest***************************\n\n");
 
         }
     }

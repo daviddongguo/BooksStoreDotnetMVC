@@ -97,6 +97,7 @@
     <Compile Include="Controllers\ProductControllerTests.cs" />
     <Compile Include="Entities\CartTests.cs" />
     <Compile Include="HtmlHelpers\PagingHelpersTests.cs" />
+    <Compile Include="Infrastructure\Concrete\FormsAuthProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

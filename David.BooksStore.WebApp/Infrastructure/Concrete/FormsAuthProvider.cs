@@ -14,7 +14,7 @@ namespace David.BooksStore.WebApp.Infrastructure.Concrete
     {
         public EFDbContext Db { get; set; }
 
-        private static string HashMD5(string text)
+        public static string HashMD5(string text)
         {
             var source = Encoding.UTF8.GetBytes(text);
 
