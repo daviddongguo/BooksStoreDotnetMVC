@@ -3,7 +3,7 @@ namespace David.BooksStore.Domain.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -12,18 +12,29 @@ namespace David.BooksStore.Domain.Migrations
                 c => new
                     {
                         ProductId = c.Long(nullable: false, identity: true),
-                        Title = c.String(),
+                        Title = c.String(nullable: false),
                         Author = c.String(),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        CategoryId = c.String(),
-                        Description = c.String(),
+                        CategoryId = c.String(nullable: false),
+                        Description = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ProductId);
+            
+            CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        UserId = c.Int(nullable: false, identity: true),
+                        Username = c.String(nullable: false),
+                        PasswordHash = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.UserId);
             
         }
         
         public override void Down()
         {
+            DropTable("dbo.Users");
             DropTable("dbo.Products");
         }
     }
