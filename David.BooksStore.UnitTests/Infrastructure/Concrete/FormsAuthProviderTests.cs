@@ -10,7 +10,7 @@ namespace David.BooksStore.WebApp.Infrastructure.Concrete.Tests
         [TestMethod()]
         public void AuthenticateTest()
         {
-            string inputPwdHash = FormsAuthProvider.HashMD5("admin");
+            string inputPwdHash = FormsAuthProvider.HashMD5("pwd");
             Debug.WriteLine("\n\n************************CompletedTest***************************\n\n");
             Debug.WriteLine(inputPwdHash);
             Debug.WriteLine("\n\n*************************CompletedTest**************************\n\n");

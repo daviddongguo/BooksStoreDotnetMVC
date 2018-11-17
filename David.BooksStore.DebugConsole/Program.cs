@@ -13,6 +13,26 @@ namespace David.BooksStore.DebugConsole
     {
         static void Main(string[] args)
         {
+
+            DisplayPorduct();
+
+            Console.ReadKey();
+
+        }
+
+        private static void DisplayPorduct()
+        {
+            using (var ctx = new EFDbContext())
+            {
+                foreach (var item in ctx.Products)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+        }
+
+        private static void PopulateDate()
+        {
             using (var ctx = new EFDbContext())
             {
                 for (int i = 1; i < 50; i++)
@@ -30,10 +50,6 @@ namespace David.BooksStore.DebugConsole
                     ctx.SaveChanges();
                 }
             }
-
-
-            Console.ReadKey();
-
         }
     }
 }

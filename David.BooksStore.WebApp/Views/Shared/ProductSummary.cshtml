@@ -1,5 +1,12 @@
 ﻿@model David.BooksStore.Domain.Entities.Product
 <div class="well">
+    @if (Model.ImageData != null)
+    {
+        <div class="pull-left" style="margin-right: 10px">
+            <img class="img-thumbnail" width="75" height="75"
+                 src="@Url.Action("GetImage", "Product", new { Model.ProductId })" />
+        </div>
+    }
     <h3>
         <strong>@Model.Title</strong>
         <span class="pull-right label label-primary">@Model.Price.ToString("c")</span>
@@ -7,12 +14,11 @@
     @using (Html.BeginForm("AddToCart", "Cart"))
     {
         <div class="pull-right">
-            @* Get the current productId = (int) currentProductId *@
             @Html.HiddenFor(x => x.ProductId)
-            @* Get the current page's URL *@
-            @Html.Hidden("returnUrl", Request.Url.PathAndQuery) 
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
             <input type="submit" class="btn btn-success" value="Add to cart" />
         </div>
     }
-    <span class="lead"> @Model.Description</span>
+    <span class="lead"> @Model.Author</span><br/>
+    <span class="lead"> @Model.CategoryId</span>
 </div>

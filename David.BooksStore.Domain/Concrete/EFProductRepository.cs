@@ -49,8 +49,12 @@ namespace David.BooksStore.Domain.Concrete
                 {
                     dbEntry.Title = product.Title;
                     dbEntry.Description = product.Description;
+                    dbEntry.Author = product.Author;
                     dbEntry.Price = product.Price;
                     dbEntry.CategoryId = product.CategoryId;
+                    dbEntry.ImageData = product.ImageData;
+                    dbEntry.ImageMimeType = product.ImageMimeType;
+
                 }
             }
             context.SaveChanges();

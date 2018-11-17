@@ -1,4 +1,5 @@
 ﻿using David.BooksStore.Domain.Abstract;
+using David.BooksStore.Domain.Entities;
 using David.BooksStore.WebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,22 @@ namespace David.BooksStore.WebApp.Controllers
             };
 
             return View(productsModel);
+        }
+
+        public FileContentResult GetImage(int productId)
+        {
+            Product prod = repository
+                .Products
+                .FirstOrDefault(p => p.ProductId == productId);
+
+            if (prod != null)
+            {
+                return File(prod.ImageData, prod.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
