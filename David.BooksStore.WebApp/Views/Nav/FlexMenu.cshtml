@@ -4,10 +4,10 @@
     string wrapperClasses = horizontal ? "btn-group btn-group-sm btn-group-justified" : null;
 }
 <div class="@wrapperClasses">
-    @Html.ActionLink("Home", "", "", 
+    @Html.ActionLink("Home", "List", "Product", "categoryId = null",
     new
     {
-    @class = horizontal ? "btn btn-default btn-sm" :
+        @class = horizontal ? "btn btn-default btn-sm" :
     "btn btn-block btn-default btn-lg"
     })
     @foreach (var link in Model)

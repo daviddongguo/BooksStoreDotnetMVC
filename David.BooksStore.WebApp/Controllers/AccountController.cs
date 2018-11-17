@@ -1,8 +1,9 @@
 ﻿using David.BooksStore.WebApp.Areas.Admin.Infrastructure.Abstract;
 using David.BooksStore.WebApp.Areas.Admin.Models;
 using System.Web.Mvc;
+using System.Web.Security;
 
-namespace David.BooksStore.WebApp.Areas.Admin.Controllers
+namespace David.BooksStore.WebApp.Controllers
 {
     public class AccountController : Controller
     {
@@ -36,6 +37,13 @@ namespace David.BooksStore.WebApp.Areas.Admin.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon(); // it will clear the session at the end of request
+            return RedirectToAction("List", "Product");
         }
     }
 }
