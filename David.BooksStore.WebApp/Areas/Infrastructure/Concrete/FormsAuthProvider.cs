@@ -1,14 +1,12 @@
 ﻿using David.BooksStore.Domain.Concrete;
-using David.BooksStore.WebApp.Infrastructure.Abstract;
+using David.BooksStore.WebApp.Areas.Admin.Infrastructure.Abstract;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 using System.Web.Security;
 
-namespace David.BooksStore.WebApp.Infrastructure.Concrete
+namespace David.BooksStore.WebApp.Areas.Admin.Infrastructure.Concrete
 {
     public class FormsAuthProvider : IAuthProvider
     {

@@ -1,7 +1,7 @@
 ﻿using David.BooksStore.Domain.Entities;
 using System.Web.Mvc;
 
-namespace David.BooksStore.WebApp.Infrastructure.Binders
+namespace David.BooksStore.WebApp.Areas.Admin.Infrastructure.Binders
 {
     public class CartModelBinder : IModelBinder
     {

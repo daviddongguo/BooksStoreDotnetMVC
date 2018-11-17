@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace David.BooksStore.WebApp.Models
+namespace David.BooksStore.WebApp.Areas.Admin.Models
 {
     public class LoginViewModel
     {

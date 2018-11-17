@@ -9,7 +9,7 @@ namespace David.BooksStore.Domain.Entities
     public class EmailSettings
     {
         public string MailToAddress = "orders@example.com";
-        public string MailFromAddress = "sportsstore@example.com";
+        public string MailFromAddress = "BooksStore@example.com";
         public bool UseSsl = true;
         public string Username = "MySmtpUsername";
         public string Password = "MySmtpPassword";

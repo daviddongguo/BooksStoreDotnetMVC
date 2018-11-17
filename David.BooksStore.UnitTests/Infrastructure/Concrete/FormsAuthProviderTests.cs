@@ -1,11 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using David.BooksStore.WebApp.Infrastructure.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using David.BooksStore.WebApp.Infrastructure.Abstract;
+﻿using David.BooksStore.WebApp.Areas.Admin.Infrastructure.Concrete;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 
 namespace David.BooksStore.WebApp.Infrastructure.Concrete.Tests

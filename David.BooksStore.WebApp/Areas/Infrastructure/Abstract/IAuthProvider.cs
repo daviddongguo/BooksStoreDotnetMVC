@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace David.BooksStore.WebApp.Infrastructure.Abstract
+namespace David.BooksStore.WebApp.Areas.Admin.Infrastructure.Abstract
 {
     public interface IAuthProvider
     {
