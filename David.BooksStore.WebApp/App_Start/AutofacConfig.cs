@@ -3,8 +3,8 @@ using Autofac.Integration.Mvc;
 using David.BooksStore.Domain.Abstract;
 using David.BooksStore.Domain.Concrete;
 using David.BooksStore.Domain.Entities;
-using David.BooksStore.WebApp.Areas.Admin.Infrastructure.Abstract;
-using David.BooksStore.WebApp.Areas.Admin.Infrastructure.Concrete;
+using David.BooksStore.WebApp.Infrastructure.Abstract;
+using David.BooksStore.WebApp.Infrastructure.Concrete;
 using System;
 using System.Web.Mvc;
 

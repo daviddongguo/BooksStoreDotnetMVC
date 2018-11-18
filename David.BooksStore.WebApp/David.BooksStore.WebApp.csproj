@@ -147,9 +147,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
-    <Compile Include="Areas\Infrastructure\Abstract\IAuthProvider.cs" />
-    <Compile Include="Areas\Infrastructure\Binders\CartModelBinder.cs" />
-    <Compile Include="Areas\Infrastructure\Concrete\FormsAuthProvider.cs" />
+    <Compile Include="Infrastructure\Abstract\IAuthProvider.cs" />
+    <Compile Include="Infrastructure\Binders\CartModelBinder.cs" />
+    <Compile Include="Infrastructure\Concrete\FormsAuthProvider.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />

@@ -1,5 +1,4 @@
-﻿using David.BooksStore.WebApp.Areas.Admin.Infrastructure.Concrete;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 
 namespace David.BooksStore.WebApp.Infrastructure.Concrete.Tests
