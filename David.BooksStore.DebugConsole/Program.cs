@@ -5,6 +5,8 @@ using David.BooksStore.WebApp.Controllers;
 using Moq;
 using System;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.Mvc;
 
 namespace David.BooksStore.DebugConsole
@@ -14,10 +16,24 @@ namespace David.BooksStore.DebugConsole
         static void Main(string[] args)
         {
 
-            DisplayPorduct();
+            // DisplayPorduct();
+            Console.WriteLine(HashMD5("pwd"));
 
             Console.ReadKey();
 
+        }
+
+
+        public static string HashMD5(string text)
+        {
+            var source = Encoding.UTF8.GetBytes(text);
+
+            using (MD5 hasher = MD5.Create())
+            {
+                var result = hasher.ComputeHash(source);
+
+                return Convert.ToBase64String(result);
+            }
         }
 
         private static void DisplayPorduct()
