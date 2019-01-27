@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace David.BooksStore.Domain.Entities
+﻿namespace David.BooksStore.Domain.Entities
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class Cart
     {
         private List<CartLine> lineCollection = new List<CartLine>();
+
+        public IEnumerable<CartLine> Lines
+        {
+            get { return lineCollection; }
+        }
 
         public void AddItem(Product product, int quantity)
         {
@@ -29,10 +34,9 @@ namespace David.BooksStore.Domain.Entities
             }
         }
 
-        // 
-        public void RemoveLine(Product product)
+        public void Clear()
         {
-            lineCollection.RemoveAll(l => l.Product.ProductId == product.ProductId);
+            lineCollection.Clear();
         }
 
         public decimal ComputeTotalValue()
@@ -40,23 +44,17 @@ namespace David.BooksStore.Domain.Entities
             return lineCollection.Sum(e => e.Product.Price * e.Quantity);
         }
 
-
-        public void Clear()
+        //
+        public void RemoveLine(Product product)
         {
-            lineCollection.Clear();
-        }
-
-
-        public IEnumerable<CartLine> Lines
-        {
-            get { return lineCollection; }
+            lineCollection.RemoveAll(l => l.Product.ProductId == product.ProductId);
         }
     }
-
 
     public class CartLine
     {
         public Product Product { get; set; }
+
         public int Quantity { get; set; }
     }
 }
