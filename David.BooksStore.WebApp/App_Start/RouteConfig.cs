@@ -64,6 +64,8 @@ namespace David.BooksStore.WebApp
                     new { page = @"\d+" }
                 );
             routes.MapRoute(null, "{controller}/{action}");
+
+
         }
     }
 }

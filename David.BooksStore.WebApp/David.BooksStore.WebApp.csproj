@@ -14,7 +14,7 @@
     <RootNamespace>David.BooksStore.WebApp</RootNamespace>
     <AssemblyName>David.BooksStore.WebApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -214,7 +214,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>14834</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:14834/</IISUrl>
+          <IISUrl>http://localhost/David.BooksStore.WebApp</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
