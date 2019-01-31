@@ -63,8 +63,8 @@ namespace David.BooksStore.WebApp
                     },
                     new { page = @"\d+" }
                 );
-            routes.MapRoute(null, "{controller}/{action}");
 
+            routes.MapRoute(null, "{controller}/{action}");
 
         }
     }
