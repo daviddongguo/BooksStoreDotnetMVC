@@ -32,9 +32,10 @@ namespace David.BooksStore.WebApp.Infrastructure.Concrete
 
             if (user != null)
             {
-                var inputPwdHash = HashMD5(password);
+                //var inputPwdHash = HashMD5(password);
+                var inputPwdHash = password;
 
-                if(user.PasswordHash == inputPwdHash)
+                if (user.PasswordHash == inputPwdHash)
                 {
                     result = true;
                 }
