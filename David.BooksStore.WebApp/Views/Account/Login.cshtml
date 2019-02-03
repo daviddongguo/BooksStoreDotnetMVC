@@ -23,8 +23,9 @@
             <input type="submit" value="Log in" class="btn btn-primary" />
         }
     </div>
+    <script src="~/Scripts/jquery.md5.js"></script>
     <script>
-        $('#Password').focusout(function(){
+        $('#Password').focusout(function () {
             $('#Password').val = md5($('#Password').val);
         })
     </script>
