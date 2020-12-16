@@ -22,11 +22,13 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
 
     - name: Restore NuGet packages
-      run: nuget restore
+      run: nuget restore      
+      working-directory: David.BooksStore.WebApp
 
     - name: Publish to folder
       run: msbuild /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=./published/ /p:PackageAsSingleFile=false
-
+      working-directory: David.BooksStore.WebApp
+      
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
