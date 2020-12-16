@@ -59,6 +59,13 @@
 
 7  Auth and Login
 
-8 Database Connection
+8 Database Connection - using MySql
+
+  in App.config
+    1.
+
+  Enable-Migrations
+  Add-Migration version
+  Update-Database
 
 10 Azure Deployment
