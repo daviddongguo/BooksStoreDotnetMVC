@@ -17,7 +17,10 @@ namespace David.BooksStore.DebugConsole
         {
 
             // DisplayPorduct();
-            Console.WriteLine(HashMD5("pwd"));
+            //Console.WriteLine(HashMD5("pwd"));
+            //SeedProducts();
+            DisplayProducts();
+
 
             Console.ReadKey();
 
@@ -36,7 +39,7 @@ namespace David.BooksStore.DebugConsole
             }
         }
 
-        private static void DisplayPorduct()
+        private static void DisplayProducts()
         {
             using (var ctx = new EFDbContext())
             {
@@ -47,7 +50,7 @@ namespace David.BooksStore.DebugConsole
             }
         }
 
-        private static void PopulateDate()
+        private static void SeedProducts()
         {
             using (var ctx = new EFDbContext())
             {
