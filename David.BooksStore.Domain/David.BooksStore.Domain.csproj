@@ -86,29 +86,12 @@
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ShippingDetails.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201811171430178_InitialCreate.cs" />
-    <Compile Include="Migrations\201811171430178_InitialCreate.Designer.cs">
-      <DependentUpon>201811171430178_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811171521487_ModifyLenghtOfProductTitle.cs" />
-    <Compile Include="Migrations\201811171521487_ModifyLenghtOfProductTitle.Designer.cs">
-      <DependentUpon>201811171521487_ModifyLenghtOfProductTitle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mock\MockProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811171430178_InitialCreate.resx">
-      <DependentUpon>201811171430178_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811171521487_ModifyLenghtOfProductTitle.resx">
-      <DependentUpon>201811171521487_ModifyLenghtOfProductTitle.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
