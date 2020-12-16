@@ -61,11 +61,12 @@
 
 8 Database Connection - using MySql
 
-  in App.config
-    1.
-
+- Remove Sql Server (option)
+- Add MySql.Data.Entity
+- Add connection string
+- Package Manager Console
   Enable-Migrations
   Add-Migration version
-  Update-Database
+  Update-Database --Verbose
 
 10 Azure Deployment
